@@ -1,8 +1,12 @@
 import fs from 'fs';
 import express from 'express';
 import bodyParser from 'body-parser';
+import AppRouter from './routes';
+import ApiRouter from './routes/api';
+import ejs from 'ejs';
 
 const app = express();
+app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use((req, res, next) => {
     console.log('within middleware');
@@ -11,6 +15,8 @@ app.use((req, res, next) => {
 });
 app.use(express.static('./public'));
 
+app.use('/api', ApiRouter);
+app.use('/', AppRouter);
 
 app.post('/api/users', (req, res) => {
     console.log(req.body);

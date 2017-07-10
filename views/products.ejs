@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    This is a trial site generated from server    
+    <h3><%=title %></h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i<products.length; i++) { %>
+            <tr>
+                <td><%= products[i].title %></td>
+                <td><%= products[i].price %></td>
+            </tr>
+            <% } %>
+        </tbody>
+
+    </table>
+</body>
+</html>
