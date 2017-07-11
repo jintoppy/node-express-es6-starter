@@ -16,23 +16,8 @@ app.use((req, res, next) => {
     next();
 });
 app.use(express.static('./public'));
-
 app.use('/api', ApiRouter);
 app.use('/', AppRouter);
-
-app.post('/api/users', (req, res) => {
-    console.log(req.body);
-    res.send(req.body);
-});
-
-app.get('/api/users', (req, res) => {
-    res
-        .status(200)
-        .json({
-            message: 'trial'
-        });
-});
-
 app.listen(3000, () => {
     console.log('listening on 3000');
 });

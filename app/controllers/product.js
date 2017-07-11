@@ -1,11 +1,14 @@
 import Product from '../models/product';
 export const getProducts = (req, res) => {
-    Product.find((err, products) => {
-        if(err){
-            return res.status(500).send(err);
-        }
-        return res.status(200).json(products);
-    });
+    Product
+        .find()
+        .exec((err, products) => {
+            if(err){
+                return res.status(500).send(err);
+            }
+            return res.status(200).json(products);
+        });
+        
     
 };
 
